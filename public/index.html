@@ -5,6 +5,7 @@
     <title>Sample FirebaseUI App</title>
 
     <script src="/helps.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.6.9/firebase.js"></script>
     <script>
 
@@ -83,26 +84,39 @@
                 var aspects = db.ref('/aspects/');
                 var reviews = db.ref('/ratings/' + today.year + '/' + today.week);
 
-                aspects.on('value', function(snapshot) {
-                  var aspects = snapshot.val();
-                  var getAspects = function(array,aspects, questionair) {
-                    for (var i = array.length - 1; i >= 0; i--) {
-                      var aspect = aspects[array[i]];
-                      if(typeof(aspect.aspects) == "undefined") {
-                        questionair.push({
-                          question : aspect,
-                          rating : 0
-                        });
-                      } else {
-                        getAspects(aspect.aspects, aspects,questionair);
-                      }
-                    }
-                  }
-                  var reviewTemplate = []
-                  getAspects(aspects.core.aspects, aspects, reviewTemplate);
-                  console.log(reviewTemplate);
+                // aspects.on('value', function(snapshot) {
+                //   var aspects = snapshot.val();
+                //   var getAspects = function(array,aspects, questionair) {
+                //     for (var i = array.length - 1; i >= 0; i--) {
+                //       var aspect = aspects[array[i]];
+                //       if(typeof(aspect.aspects) == "undefined") {
+                //         questionair.push({
+                //           question : aspect,
+                //           rating : 0
+                //         });
+                //       } else {
+                //         getAspects(aspect.aspects, aspects,questionair);
+                //       }
+                //     }
+                //   }
+                //   var reviewTemplate = []
+                //   getAspects(aspects.core.aspects, aspects, reviewTemplate);
+                //   console.log(reviewTemplate);
 
+                // });
+
+                aspects.on('value', function(snapshot) {
+                  
+                    console.log(snapshot.val())
+
+
+                    $.each(snapshot.val(), function(a,b,c) {
+                      console.log(b);
+                    })
+                  
                 });
+
+
             // 
             // END Data Management
             // 
@@ -133,6 +147,32 @@
       <a href="#" id="sign-in"></a>
       <div id="account-details"></div>
     </header>
-    <div id="rating"></div>
+    <div id="aspects">
+      <section id="add">
+        <input type="text" name="key" id="key" placeholder="key" />
+        <input type="text" name="parent" id="parent" placeholder="parent" />
+        <input type="text" name="theme" id="theme" placeholder="behaviors" />
+        <input type="text" name="category" id="category" placeholder="core" />
+        <input type="text" name="aspects" id="aspects" placeholder="aspects" />
+        <input type="text" name="title" id="title" placeholder="full text" />
+        <button>+</button>
+      </section>
+      <section id="list">
+        <script id="list">
+          <table>
+            <tr>
+              <td> {{key}} </td>
+              <td> {{parent}} </td>
+              <td> {{theme}} </td>
+              <td> {{category}} </td>
+              <td> {{category}} </td>
+              <td> {{aspects}} </td>
+              <td> {{title}} </td>
+            </tr>
+          </table>
+        </script>
+
+      </section>
+    </div>
   </body>
 </html>
