@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Sample FirebaseUI App</title>
+
+    <script src="/helps.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.9/firebase.js"></script>
+    <script>
+
+
+
+
+
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyAW2_KQADj_F1Bcw8aaC7p4d2q4zHxdWJM",
+        authDomain: "evaluate-7a60b.firebaseapp.com",
+        databaseURL: "https://evaluate-7a60b.firebaseio.com",
+        storageBucket: "evaluate-7a60b.appspot.com",
+        messagingSenderId: "421653791283"
+      };
+      firebase.initializeApp(config);
+    </script>
+    <script type="text/javascript">
+      initApp = function() {
+        firebase.auth().onAuthStateChanged(function(user) {
+          if (user) {
+            // User is signed in.
+            var displayName = user.displayName;
+            var email = user.email;
+            var emailVerified = user.emailVerified;
+            var photoURL = user.photoURL;
+            var uid = user.uid;
+            var providerData = user.providerData;
+            user.getToken().then(function(accessToken) {
+              document.getElementById('sign-in-status').textContent = 'Signed in';
+              document.getElementById('sign-in').textContent = 'Sign out';
+              document.getElementById('sign-in').onclick = function(){
+                firebase.auth().signOut().then(function(){
+                  this.href = "/login.html?mode=select" 
+                  this.onclick = null;
+                }); 
+                return false;
+              };
+              document.getElementById('account-details').textContent = JSON.stringify({
+                displayName: displayName,
+                email: email,
+                emailVerified: emailVerified,
+                photoURL: photoURL,
+                uid: uid,
+                accessToken: accessToken,
+                providerData: providerData
+              }, null, '  ');
+            });
+
+            // 
+            // END User Management
+            // 
+
+
+
+            // 
+            // BEGIN Data Management
+            // 
+              var jacob = {
+                        "fname": "Jacob",
+                        "lname": "White",
+                        "uname": "jw900155",
+                        "email": "jwhite@caleres.com",
+                        "title": "Director, IS",
+                        "tmpl" : "dir",
+                        "current": {
+                          how:3,
+                          what:2.9,
+                          total:2.95
+                        }
+                    
+                  };
+                var today = new Date().getFiscal();
+                var db = firebase.database();
+                var usr = db.ref('/users/');
+                var aspects = db.ref('/aspects/');
+                var reviews = db.ref('/ratings/' + today.year + '/' + today.week);
+
+                aspects.on('value', function(snapshot) {
+                  var aspects = snapshot.val();
+                  var getAspects = function(array,aspects, questionair) {
+                    for (var i = array.length - 1; i >= 0; i--) {
+                      var aspect = aspects[array[i]];
+                      if(typeof(aspect.aspects) == "undefined") {
+                        questionair.push({
+                          question : aspect,
+                          rating : 0
+                        });
+                      } else {
+                        getAspects(aspect.aspects, aspects,questionair);
+                      }
+                    }
+                  }
+                  var reviewTemplate = []
+                  getAspects(aspects.core.aspects, aspects, reviewTemplate);
+                  console.log(reviewTemplate);
+
+                });
+            // 
+            // END Data Management
+            // 
+            
+
+          } else {
+            // User is signed out.
+            document.getElementById('sign-in-status').textContent = 'Signed out';
+            document.getElementById('sign-in').textContent = 'Sign in';
+            document.getElementById('sign-in').href = "/login.html?mode=select";
+            document.getElementById('account-details').textContent = 'null';
+          }
+        }, function(error) {
+          console.log(error);
+        });
+
+      };
+
+      window.addEventListener('load', function() {
+        initApp()
+      });
+    </script>
+  </head>
+  <body>
+    <header>
+      <h1></h1>
+      <div id="sign-in-status"></div>
+      <a href="#" id="sign-in"></a>
+      <div id="account-details"></div>
+    </header>
+    <div id="rating"></div>
+  </body>
+</html>

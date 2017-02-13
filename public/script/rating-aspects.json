@@ -1,0 +1,174 @@
+var behaviors = {
+	"core": {
+		"title" : "Core Behaviors",
+		"aspects" : ["passion", "ownership", "integrity", "play", "commercial", "consumer", "collaborates", "communicates"]
+	},
+	"leader": {
+		"title" : "Leadership Behaviors",
+		"aspects":["inspire","engage","empower","connect"]
+	},
+	"passion" : {
+		"title":"Drives with Passion",
+		"parent":"core",
+		"aspects": ["passet", "pascommit", "pasact", "pascalc"]
+	},
+	"passet" : {
+		"title":"Sets challenging goals",
+		"parent":"passion",
+	},	
+	"pascommit" : {
+		"title" : "Shows passionate commitment to meeting goals, tackling challenges with optimism",
+		"parent":"passion"
+	},		
+	"pasact" : {
+		"title" : "Acts decisively with urgency & thought",
+		"parent" : "passion"
+	},		
+	"pascalc" : {
+		"title":"Takes Calculated Risks to accomplish a remarkable result",
+		"parent":"passion"
+	},
+	"ownership" : {
+		"title":"Takes Ownership",
+		"parent":"core",
+		"aspects": ["ownmeet", "ownstep", "owngrow", "ownadmit"]
+	},
+	"ownmeet" : {
+		"title": "Meets set goals",
+		"parent":"ownership"
+	},
+	"ownstep" : {
+		"title": "Takes initiative, stepping forward regardless of position",
+		"parent":"ownership"
+	},
+	"owngrow" : {
+		"title": "Seeks development & invites feedback, sharing personal strengths & opportunities",
+		"parent":"ownership"
+	},
+	"ownadmit" : {
+		"title": "Takes accountability for personal performance; Admits mistakes",
+		"parent":"ownership"
+	},
+	"integrity" : {
+		"title":"Acts with Integrity",
+		"parent":"core",
+		"aspects": ["intwin", "intdiffer", "introle", "intconfronts"]
+	},
+	"intwin":{
+		"title" : "Seeks the win/win, but does not prioritize (is not driven by) pleasing others; Willing to differ from others.",
+		"parent" : "integrity"
+	},
+	"intdiffer":{
+		"title":"Voices views even when unpopular & encourages others to differ with him/her",
+		"parent" : "integrity"
+	},
+	"introle":{
+		"title" : "Speaks and acts with the perspective of the role played in the company",
+		"parent" : "integrity"
+	},
+	"intconfronts":{
+		"title":"Confronts unethical actions",
+		"parent" : "integrity"
+	},
+	"play" : {
+		"title":"Play your Part",
+		"parent":"core",
+		"aspects": ["playplan", "playexecute", "playpriority", "playmeasure"]
+	},
+	"playplan":{
+		"title" : "Develops action plans to deliver accountabilities",
+		"parent" : "play"
+	},
+	"playexecute":{
+		"title":"Executes plans effectively & efficiently, adapting as needed",
+		"parent" : "play"
+	},
+	"playpriority":{
+		"title" : "Keeps focus on what matters while managing multiple demands",
+		"parent" : "play"
+	},
+	"playmeasure":{
+		"title":"Tracks and measures performance",
+		"parent" : "play"
+	},
+	"commercial" : {
+		"title":"Acts Commercially",
+		"parent":"core",
+		"aspects": ["compdrive", "comptrend", "compsolve", "comproi"]
+	},
+	"compdrive":{
+		"title" : "Uses an understanding of our financial drivers to make astute day-to-day business decisions",
+		"parent" : "commercial"
+	},
+	"comptrend":{
+		"title":"Stays current with industry & trends",
+		"parent" : "commercial"
+	},
+	"compsolve":{
+		"title" : "Works to turn ideas into solutions that add value for the company",
+		"parent" : "commercial"
+	},
+	"comproi":{
+		"title":"Makes decisions in context of ROI and impact on business objectives",
+		"parent" : "commercial"
+	},
+	"consumer" : {
+		"title":"Keeps the Consumer/Customer Close",
+		"parent":"core",
+		"aspects": ["consval", "consrend", "consneed"]
+	},
+	"consval":{
+		"title" : "Finds and implements ways to create & add value for our consumer / customer",
+		"parent" : "consumer"
+	},
+	"consrend":{
+		"title":"Stays current with consumer / customer, insights & trends",
+		"parent" : "consumer"
+	},
+	"consneed":{
+		"title" : "Anticipates and addresses the consumer’s / customer’s perspective and needs",
+		"parent" : "consumer"
+	},
+	"collaborates" : {
+		"title":"Collaborates",
+		"parent":"core",
+		"aspects": ["collnetwork", "collshare", "collrecognize", "collrespect"]
+	},
+	"collnetwork":{
+		"title" : "Develops effective internal partnerships & informal networks",
+		"parent" : "collaborates"
+	},
+	"collshare":{
+		"title":"Shares learnings, plans, information, and resources, taking or passing the ball as needed",
+		"parent" : "collaborates"
+	},
+	"collrecognize":{
+		"title" : "Recognizes teammates’ contributions/achievements",
+		"parent" : "collaborates"
+	},
+	"collrespect":{
+		"title":"Models respect in all interactions",
+		"parent" : "collaborates"
+	},
+	"communicates" : {
+		"title":"Communicates Effectively",
+		"parent":"core",
+		"aspects": ["commlisten", "commclear", "commdirect", "commwhy"]
+	},
+	"commlisten":{
+		"title":"Actively listens, staying receptive to good & bad news",
+		"parent" : "communicates"
+	},
+	"commclear":{
+		"title":"Communicates in a timely & clear manner in all directions",
+		"parent" : "communicates"
+	},
+	"commdirect":{
+		"title":"Shares the uncomfortable truths and deals with issues directly and candidly, maintaining audience receptivity",
+		"parent" : "communicates"
+	},
+	"commwhy":{
+		"title":"Provides the why; explains the purpose behind decisions, activities, and assignments",
+		"parent" : "communicates"
+	}
+}
