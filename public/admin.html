@@ -142,7 +142,7 @@
                         return (row[b]) ? row[b] : ' -- ';
                       })
                     })
-                    $('#list tbody').html(rows).find('td:not(.aspects)').click(function(){
+                    $('#list tbody').html(rows).find('td:not(.aspects,.key)').click(function(){
                         $(this).attr('contenteditable', true).focus();
                     }).keypress(function(e){
                       if(e.keyCode == 13) {

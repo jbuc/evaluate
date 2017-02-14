@@ -158,30 +158,22 @@
     "theme" : "core",
     "title" : "Core Behaviors"
   },
-  "dIIsol" : {
-    "aspects" : [ "" ],
-    "category" : "what",
-    "key" : "devIIsolutions",
-    "parent" : "devII",
-    "theme" : "accountability",
-    "title" : "Develop requested development assets, enhancements, and features."
-  },
   "devI" : {
-    "aspects" : [ "" ],
+    "aspects" : ["devIsolutions", "devIsystems", "devItalent", "core", "values"],
     "category" : "role",
     "parent" : "",
     "theme" : "dev",
     "title" : "Developer I"
   },
   "devII" : {
-    "aspects" : [ "" ],
+    "aspects" : ["devIIsolutions", "devIIsystems", "devIItalent", "core", "values"],
     "category" : "role",
     "parent" : "",
     "theme" : "dev",
     "title" : "Developer II"
   },
   "devIII" : {
-    "aspects" : [ "" ],
+    "aspects" : [ "devIIIsolutions", "devIIIsystems", "devIIItalent", "core", "values" ],
     "category" : "role",
     "parent" : "",
     "theme" : "dev",
@@ -208,6 +200,13 @@
     "theme" : "accountability",
     "title" : "Explores, trains, and develops in understanding of HTML/CSS/Javascript knowledge for self and co workers"
   },
+  "devIIsolutions" : {
+    "aspects" : [ "" ],
+    "category" : "what",
+    "parent" : "devII",
+    "theme" : "accountability",
+    "title" : "Develop requested development assets, enhancements, and features."
+  },
   "devIIsystems" : {
     "aspects" : [ "" ],
     "category" : "what",
@@ -219,6 +218,27 @@
     "aspects" : [ "" ],
     "category" : "what",
     "parent" : "devII",
+    "theme" : "accountability",
+    "title" : "Explores, trains, and develops in understanding of HTML/CSS/Javascript knowledge for self and co workers"
+  },
+  "devIsolutions" : {
+    "aspects" : [ "" ],
+    "category" : "what",
+    "parent" : "devI",
+    "theme" : "accountability",
+    "title" : "Develop requested development assets, enhancements, and features."
+  },
+  "devIsystems" : {
+    "aspects" : [ "" ],
+    "category" : "what",
+    "parent" : "devI",
+    "theme" : "accountability",
+    "title" : "Reviews, diagnoses, repairs, and maintains online experiences and ecommerce sites."
+  },
+  "devItalent" : {
+    "aspects" : [ "" ],
+    "category" : "what",
+    "parent" : "devI",
     "theme" : "accountability",
     "title" : "Explores, trains, and develops in understanding of HTML/CSS/Javascript knowledge for self and co workers"
   },
@@ -505,5 +525,48 @@
     "parent" : "",
     "theme" : "design",
     "title" : "Manager, User Experience"
+  },
+  "values" : {
+    "aspects" : [ "valpassion", "valaccountability", "valcuriosity", "valcreativity", "valcaring" ],
+    "category" : "what",
+    "parent" : "",
+    "theme" : "corporate",
+    "title" : "Corporate values"
+  },
+  "valpassion" : {
+    "aspects" : [ "" ],
+    "category" : "what",
+    "parent" : "values",
+    "theme" : "corporate",
+    "title" : "Passion"
+  },
+    "valaccountability" : {
+    "aspects" : [ "" ],
+    "category" : "what",
+    "parent" : "values",
+    "theme" : "corporate",
+    "title" : "Accountability"
+  },
+  "valcuriosity" : {
+    "aspects" : [ "" ],
+    "category" : "what",
+    "parent" : "values",
+    "theme" : "corporate",
+    "title" : "Curiosity"
+  },
+  "valcreativity" : {
+    "aspects" : [ "" ],
+    "category" : "what",
+    "parent" : "values",
+    "theme" : "corporate",
+    "title" : "Creativity"
+  },
+  "valcaring" : {
+    "aspects" : [ "" ],
+    "category" : "what",
+    "parent" : "values",
+    "theme" : "corporate",
+    "title" : "Caring"
   }
+
 }
