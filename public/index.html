@@ -21,6 +21,9 @@
     </style>
     <script src="/helps.js"></script>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="/script/review-setup.js"></script>
+    <script src="/script/rating-people.js"></script>
+    <script src="/script/rating-aspects.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.6.9/firebase.js"></script>
     <script>
 
@@ -71,48 +74,51 @@
               }, null, '  ');
             });
 
-            // 
-            // END User Management
-            // 
+
+var today = new Date().getFiscal();
+var db = firebase.database();
+var $title = $("#currentReview").find('h1');
+var $message = $("#currentReview").find('p');
+var $action = $("#currentReview").find('button');
+
+ // 
+ // INIT REVIEWS
+ // 
+db.ref('/aspects/').set(behaviors);
+db.ref().once('value', function(d){
+  var data = {
+    val : d.val(),
+    weekstamp : today.year + "-w" + today.week
+  }
+  var rdata = data.val.reviews;
+
+  // is there already a review running?
+  if(rdata[data.weekstamp]) {
+    // if so, let's keep going
+  } else {
+    // setup a new review if not
+    data.review = {};
+    
+    // who do you want to review?
+    setup.getUsers(data,$title,$message,$action, function(){
+      console.log(data);
+      setup.getQuestions(data,$title,$message,$action, function(){
+        console.log("questions done", data.review.pending);
+      });
+    });
+
+    // collect questions for them
+
+    // begin the review
+
+  }
 
 
+});
 
-            // 
-            // BEGIN Data Management
-            // 
-              
-                var today = new Date().getFiscal();
-                var db = firebase.database();
-                var usr = db.ref('/users/');
-                var aspects = db.ref('/aspects/');
-                var reviews = db.ref('/ratings/' + today.year + '/' + today.week);
-
-                aspects.on('value', function(snapshot) {
-                  var aspects = snapshot.val();
-                  var getAspects = function(arr, aspects, questionair) {
-                    for (var i = arr.length - 1; i >= 0; i--) {
-                      var aspect = aspects[arr[i]];
-                      if(typeof(aspect.aspects) == "undefined" || !aspect.aspects) {
-                        questionair.push({
-                          question : aspect,
-                          rating : 0
-                        });
-                      } else {
-                        console.log(aspects);
-                        getAspects(aspect.aspects, aspects, questionair);
-                      }
-                    }
-                  }
-                  var reviewTemplate = []
-                  getAspects(aspects.leader.aspects, aspects, reviewTemplate);
-                  console.log(reviewTemplate);
-
-                });
-
-                
-            // 
-            // END Data Management
-            // 
+ // 
+ // END REVIEWS
+ // 
             
 
           } else {
@@ -141,6 +147,13 @@
       <a href="#" id="sign-in"></a>
       <div id="account-details" style="display:none;"></div>
     </header>
-    
+    <section id="currentReview">
+      <h1></h1>
+      <p></p>
+      <button></button>
+    </section>
+    <script id="tmpl" type="text\tmpl">
+      
+    </script>
   </body>
 </html>

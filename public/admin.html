@@ -32,7 +32,9 @@
       
     </style>
     <script src="/helps.js"></script>
-<script src="/script/rating-aspects.js"></script>
+
+    <!-- <script src="/script/rating-aspects.js"></script> -->
+
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="/script/jquery.tablesorter.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.6.9/firebase.js"></script>
@@ -85,6 +87,7 @@
             // 
 
 
+             
 
             // 
             // BEGIN Data Management
@@ -95,6 +98,8 @@
                 var usr = db.ref('/users/');
                 var aspects = db.ref('/aspects/');
                 var reviews = db.ref('/ratings/' + today.year + '/' + today.week);
+                 
+                 // aspects.set(behaviors);
 
                 // aspects.on('value', function(snapshot) {
                 //   var aspects = snapshot.val();
@@ -116,8 +121,6 @@
                 //   console.log(reviewTemplate);
 
                 // });
-
-                aspects.set(behaviors);
 
                 aspects.on('value', function(snapshot) {
                   

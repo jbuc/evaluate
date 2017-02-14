@@ -1,0 +1,227 @@
+{
+  "aaardsma" : {
+    "email" : "aaardsma@caleres.com",
+    "fname" : "Allison",
+    "lname" : "Aardsma",
+    "ratings" : {
+      "2016" : {
+        "how" : 3,
+        "total" : 3,
+        "what" : 3
+      }
+    },
+    "title" : "Web PM II",
+    "tmpl" : "pmII",
+    "uname" : ""
+  },
+  "abaker" : {
+    "email" : "abaker@caleres.com",
+    "fname" : "Andy",
+    "lname" : "Baker",
+    "ratings" : {
+      "2016" : {
+        "how" : 3,
+        "total" : 3,
+        "what" : 3
+      }
+    },
+    "title" : "Web Dev I",
+    "tmpl" : "devI",
+    "uname" : ""
+  },
+  "ahappe" : {
+    "email" : "jwhite@caleres.com",
+    "fname" : "Jacob",
+    "lname" : "White",
+    "ratings" : {
+      "2016" : {
+        "how" : 3,
+        "total" : 3,
+        "what" : 3
+      }
+    },
+    "title" : "Web Dev II",
+    "tmpl" : "devII",
+    "uname" : ""
+  },
+  "amanker" : {
+    "email" : "ajmanker@caleres.com",
+    "fname" : "AJ",
+    "lname" : "Manker",
+    "ratings" : {
+      "2016" : {
+        "how" : 3,
+        "total" : 3,
+        "what" : 3
+      }
+    },
+    "title" : "UX Manager",
+    "tmpl" : "uxMgr",
+    "uname" : ""
+  },
+  "breiter" : {
+    "email" : "jwhite@caleres.com",
+    "fname" : "Jacob",
+    "lname" : "White",
+    "ratings" : {
+      "2016" : {
+        "how" : 3,
+        "total" : 3,
+        "what" : 3
+      }
+    },
+    "title" : "Web Dev II",
+    "tmpl" : "devII",
+    "uname" : ""
+  },
+  "dstout" : {
+    "email" : "dstout@caleres.com",
+    "fname" : "David",
+    "lname" : "Stout",
+    "ratings" : {
+      "2016" : {
+        "how" : 3,
+        "total" : 3,
+        "what" : 3
+      }
+    },
+    "title" : "Web Dev I",
+    "tmpl" : "devI",
+    "uname" : ""
+  },
+  "glabarre" : {
+    "email" : "glabarre@caleres.com",
+    "fname" : "Glenn",
+    "lname" : "LaBarre",
+    "ratings" : {
+      "2016" : {
+        "how" : 3,
+        "total" : 3,
+        "what" : 3
+      }
+    },
+    "title" : "Lead Web Developer",
+    "tmpl" : "devLead",
+    "uname" : ""
+  },
+  "hleacock" : {
+    "email" : "jwhite@caleres.com",
+    "fname" : "Jacob",
+    "lname" : "White",
+    "ratings" : {
+      "2016" : {
+        "how" : 3,
+        "total" : 3,
+        "what" : 3
+      }
+    },
+    "title" : "Web Dev II",
+    "tmpl" : "devII",
+    "uname" : ""
+  },
+  "jserben" : {
+    "email" : "jserben@caleres.com",
+    "fname" : "Jessie",
+    "lname" : "Serben",
+    "ratings" : {
+      "2016" : {
+        "how" : 3,
+        "total" : 3,
+        "what" : 3
+      }
+    },
+    "title" : "Web PM III",
+    "tmpl" : "pmIII",
+    "uname" : ""
+  },
+  "jwhite" : {
+    "email" : "jwhite@caleres.com",
+    "fname" : "Jacob",
+    "lname" : "White",
+    "ratings" : {
+      "2016" : {
+        "how" : 3,
+        "total" : 3,
+        "what" : 3
+      }
+    },
+    "title" : "Director, IS",
+    "tmpl" : "dir",
+    "uname" : ""
+  },
+  "ktarwater" : {
+    "email" : "ktarwater@caleres.com",
+    "fname" : "Kevin",
+    "lname" : "Tarwater",
+    "ratings" : {
+      "2016" : {
+        "how" : 3,
+        "total" : 3,
+        "what" : 3
+      }
+    },
+    "title" : "Web Dev I",
+    "tmpl" : "devI",
+    "uname" : ""
+  },
+  "mjohnson" : {
+    "email" : "mzjohnson@caleres.com",
+    "fname" : "Matt",
+    "lname" : "Johnson",
+    "ratings" : {
+      "2016" : {
+        "how" : 3,
+        "total" : 3,
+        "what" : 3
+      }
+    },
+    "title" : "Web Dev II",
+    "tmpl" : "devII",
+    "uname" : ""
+  },
+  "mspencer" : {
+    "email" : "mspencer@caleres.com",
+    "fname" : "Mollie",
+    "lname" : "Spencer",
+    "ratings" : {
+      "2016" : {
+        "how" : 3,
+        "total" : 3,
+        "what" : 3
+      }
+    },
+    "title" : "User Experience Designer I",
+    "tmpl" : "uxI",
+    "uname" : ""
+  },
+  "skinney" : {
+    "email" : "skinney@caleres.com",
+    "fname" : "Stephanie",
+    "lname" : "Kinney",
+    "ratings" : {
+      "2016" : {
+        "how" : 3,
+        "total" : 3,
+        "what" : 3
+      }
+    },
+    "title" : "User Experience Designer II",
+    "tmpl" : "uxII",
+    "uname" : ""
+  },
+  "tritterskamp" : {
+    "email" : "tritterskamp@caleres.com",
+    "fname" : "Tammy",
+    "lname" : "Ritterskamp",
+    "ratings" : {
+      "2016" : {
+        "how" : 3,
+        "total" : 3,
+        "what" : 3
+      }
+    },
+    "title" : "Web Dev II",
+    "tmpl" : "devII",
+    "uname" : ""
+  }
+}
