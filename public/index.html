@@ -2,8 +2,23 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Sample FirebaseUI App</title>
-
+    <title>Evaluate Application</title>
+    <style>
+      body {
+        font-family:sans-serif;
+      }
+      #list  {font-size:.7em; width:100%;}
+      #list .text {
+        width:70%;
+      }
+      .aspects {
+        display: block;
+      }
+      thead {
+        background:#eee;
+      }
+      
+    </style>
     <script src="/helps.js"></script>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.6.9/firebase.js"></script>
@@ -28,6 +43,7 @@
         firebase.auth().onAuthStateChanged(function(user) {
           if (user) {
             // User is signed in.
+            $('body').attr('class','loggedIn');
             var displayName = user.displayName;
             var email = user.email;
             var emailVerified = user.emailVerified;
@@ -64,59 +80,36 @@
             // 
             // BEGIN Data Management
             // 
-              var jacob = {
-                        "fname": "Jacob",
-                        "lname": "White",
-                        "uname": "jw900155",
-                        "email": "jwhite@caleres.com",
-                        "title": "Director, IS",
-                        "tmpl" : "dir",
-                        "current": {
-                          how:3,
-                          what:2.9,
-                          total:2.95
-                        }
-                    
-                  };
+              
                 var today = new Date().getFiscal();
                 var db = firebase.database();
                 var usr = db.ref('/users/');
                 var aspects = db.ref('/aspects/');
                 var reviews = db.ref('/ratings/' + today.year + '/' + today.week);
 
-                // aspects.on('value', function(snapshot) {
-                //   var aspects = snapshot.val();
-                //   var getAspects = function(array,aspects, questionair) {
-                //     for (var i = array.length - 1; i >= 0; i--) {
-                //       var aspect = aspects[array[i]];
-                //       if(typeof(aspect.aspects) == "undefined") {
-                //         questionair.push({
-                //           question : aspect,
-                //           rating : 0
-                //         });
-                //       } else {
-                //         getAspects(aspect.aspects, aspects,questionair);
-                //       }
-                //     }
-                //   }
-                //   var reviewTemplate = []
-                //   getAspects(aspects.core.aspects, aspects, reviewTemplate);
-                //   console.log(reviewTemplate);
-
-                // });
-
                 aspects.on('value', function(snapshot) {
-                  
-                    console.log(snapshot.val())
+                  var aspects = snapshot.val();
+                  var getAspects = function(arr, aspects, questionair) {
+                    for (var i = arr.length - 1; i >= 0; i--) {
+                      var aspect = aspects[arr[i]];
+                      if(typeof(aspect.aspects) == "undefined" || !aspect.aspects) {
+                        questionair.push({
+                          question : aspect,
+                          rating : 0
+                        });
+                      } else {
+                        console.log(aspects);
+                        getAspects(aspect.aspects, aspects, questionair);
+                      }
+                    }
+                  }
+                  var reviewTemplate = []
+                  getAspects(aspects.leader.aspects, aspects, reviewTemplate);
+                  console.log(reviewTemplate);
 
-
-                    $.each(snapshot.val(), function(a,b,c) {
-                      console.log(b);
-                    })
-                  
                 });
 
-
+                
             // 
             // END Data Management
             // 
@@ -124,6 +117,7 @@
 
           } else {
             // User is signed out.
+            $('body').attr('class','loggedOut');
             document.getElementById('sign-in-status').textContent = 'Signed out';
             document.getElementById('sign-in').textContent = 'Sign in';
             document.getElementById('sign-in').href = "/login.html?mode=select";
@@ -145,34 +139,8 @@
       <h1></h1>
       <div id="sign-in-status"></div>
       <a href="#" id="sign-in"></a>
-      <div id="account-details"></div>
+      <div id="account-details" style="display:none;"></div>
     </header>
-    <div id="aspects">
-      <section id="add">
-        <input type="text" name="key" id="key" placeholder="key" />
-        <input type="text" name="parent" id="parent" placeholder="parent" />
-        <input type="text" name="theme" id="theme" placeholder="behaviors" />
-        <input type="text" name="category" id="category" placeholder="core" />
-        <input type="text" name="aspects" id="aspects" placeholder="aspects" />
-        <input type="text" name="title" id="title" placeholder="full text" />
-        <button>+</button>
-      </section>
-      <section id="list">
-        <script id="list">
-          <table>
-            <tr>
-              <td> {{key}} </td>
-              <td> {{parent}} </td>
-              <td> {{theme}} </td>
-              <td> {{category}} </td>
-              <td> {{category}} </td>
-              <td> {{aspects}} </td>
-              <td> {{title}} </td>
-            </tr>
-          </table>
-        </script>
-
-      </section>
-    </div>
+    
   </body>
 </html>

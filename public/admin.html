@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Questions Store</title>
+    <style>
+      body {
+        font-family:sans-serif;
+      }
+      #list  {font-size:.7em; width:100%;}
+      #list .text {
+        width:70%;
+      }
+      .aspects {
+        font-size:.5em;
+        display:none;
+      }
+      thead {
+        background:#eee;
+      }
+      #add {
+        display:flex;
+        flex-flow:row;
+        justify-content: space-between;
+        padding:1em 0;
+      }
+      #add input {
+        padding:.3em;
+        font-size:.8em;
+
+      }
+      
+    </style>
+    <script src="/helps.js"></script>
+<script src="/script/rating-aspects.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="/script/jquery.tablesorter.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.9/firebase.js"></script>
+    <script>
+
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyAW2_KQADj_F1Bcw8aaC7p4d2q4zHxdWJM",
+        authDomain: "evaluate-7a60b.firebaseapp.com",
+        databaseURL: "https://evaluate-7a60b.firebaseio.com",
+        storageBucket: "evaluate-7a60b.appspot.com",
+        messagingSenderId: "421653791283"
+      };
+      firebase.initializeApp(config);
+    </script>
+    <script type="text/javascript">
+      initApp = function() {
+        firebase.auth().onAuthStateChanged(function(user) {
+          if (user) {
+            // User is signed in.
+            var displayName = user.displayName;
+            var email = user.email;
+            var emailVerified = user.emailVerified;
+            var photoURL = user.photoURL;
+            var uid = user.uid;
+            var providerData = user.providerData;
+            user.getToken().then(function(accessToken) {
+              document.getElementById('sign-in-status').textContent = 'Signed in';
+              document.getElementById('sign-in').textContent = 'Sign out';
+              document.getElementById('sign-in').onclick = function(){
+                firebase.auth().signOut().then(function(){
+                  this.href = "/login.html?mode=select" 
+                  this.onclick = null;
+                }); 
+                return false;
+              };
+              document.getElementById('account-details').textContent = JSON.stringify({
+                displayName: displayName,
+                email: email,
+                emailVerified: emailVerified,
+                photoURL: photoURL,
+                uid: uid,
+                accessToken: accessToken,
+                providerData: providerData
+              }, null, '  ');
+            });
+
+            // 
+            // END User Management
+            // 
+
+
+
+            // 
+            // BEGIN Data Management
+            // 
+              
+                var today = new Date().getFiscal();
+                var db = firebase.database();
+                var usr = db.ref('/users/');
+                var aspects = db.ref('/aspects/');
+                var reviews = db.ref('/ratings/' + today.year + '/' + today.week);
+
+                // aspects.on('value', function(snapshot) {
+                //   var aspects = snapshot.val();
+                //   var getAspects = function(array,aspects, questionair) {
+                //     for (var i = array.length - 1; i >= 0; i--) {
+                //       var aspect = aspects[array[i]];
+                //       if(typeof(aspect.aspects) == "undefined") {
+                //         questionair.push({
+                //           question : aspect,
+                //           rating : 0
+                //         });
+                //       } else {
+                //         getAspects(aspect.aspects, aspects,questionair);
+                //       }
+                //     }
+                //   }
+                //   var reviewTemplate = []
+                //   getAspects(aspects.core.aspects, aspects, reviewTemplate);
+                //   console.log(reviewTemplate);
+
+                // });
+
+                aspects.set(behaviors);
+
+                aspects.on('value', function(snapshot) {
+                  
+                    console.log(snapshot.val())
+
+                    
+                    var rows = '';
+                    var tmpl = $('#item').text();
+                    $.each(snapshot.val(), function(a,b) {
+                      
+                      var row = {
+                        ref: '/aspects/' + a,
+                        key : a,
+                        title: b.title,
+                        parent: b.parent,
+                        category: b.category,
+                        aspects: b.aspects,
+                        theme: b.theme
+                      };
+
+                      rows += tmpl.replace(/{{([^}]+?)}}/g, function(a,b,c) {
+                        return (row[b]) ? row[b] : ' -- ';
+                      })
+                    })
+                    $('#list tbody').html(rows).find('td:not(.aspects)').click(function(){
+                        $(this).attr('contenteditable', true).focus();
+                    }).keypress(function(e){
+                      if(e.keyCode == 13) {
+                        $(this).attr('contenteditable', false)
+                        db.ref($(this).attr('data-ref')).set($(this).text());
+                      }
+                    });
+                    $("#list").trigger("update");
+                });
+                $("#list").tablesorter();
+
+
+                $("#add button").click(function(){
+                  var q = {
+                    title : $("#title").val(),
+                    theme : $("#theme").val(),
+                    aspects : $("#aspects").val().split(','),
+                    category : $("#category").val(),
+                    parent : $("#parent").val(),
+                  };
+                  var key = $("#key").val();
+                  aspects.child(key).set(q);
+                  $("#add input").val('');
+                });
+
+            // 
+            // END Data Management
+            // 
+            
+
+          } else {
+            // User is signed out.
+            document.getElementById('sign-in-status').textContent = 'Signed out';
+            document.getElementById('sign-in').textContent = 'Sign in';
+            document.getElementById('sign-in').href = "/login.html?mode=select";
+            document.getElementById('account-details').textContent = 'null';
+          }
+        }, function(error) {
+          console.log(error);
+        });
+
+      };
+
+      window.addEventListener('load', function() {
+        initApp()
+      });
+    </script>
+  </head>
+  <body>
+    <header>
+      <h1></h1>
+      <div id="sign-in-status"></div>
+      <a href="#" id="sign-in"></a>
+      <div id="account-details" style="display:none;"></div>
+    </header>
+    <div id="aspects">
+      <section id="add">
+        <input type="text" name="title" id="title" placeholder="title" style="width:50%" />
+        <input type="text" name="parent" id="parent" placeholder="parent" />
+        <input type="text" name="key" id="key" placeholder="key" />
+        <input type="text" name="category" id="category" placeholder="category" />
+        <input type="text" name="theme" id="theme" placeholder="theme" />
+        <!--<input type="text" name="aspects" id="aspects" placeholder="aspects" />-->
+        <button>+</button>
+      </section>
+      <table id="list">
+        <thead>
+          <tr>
+            <th class="text">title</th>
+            <th class="aspects">aspects</th>
+            <th class="category">category</th>
+            <th class="theme">theme</th>
+            <th class="parent">parent</th>
+            <th class="key">key</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <script id="item" type="text\tmpl">
+      <tr accronym="{{key}}" class="">
+        <td class="text" data-ref="{{ref}}/title">{{title}}</td>
+        <td class="aspects" data-ref="{{ref}}/aspects">{{aspects}}</td>
+        <td class="category" data-ref="{{ref}}/category">{{category}}</td>
+        <td class="theme" data-ref="{{ref}}/theme">{{theme}}</td>
+        <td class="parent" data-ref="{{ref}}/parent">{{parent}}</td>
+        <td class="key" data-ref="{{ref}}/key">{{key}}</td>
+      </tr>
+    </script>
+
+  </body>
+</html>
