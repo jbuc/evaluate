@@ -10,7 +10,7 @@ var setup = {
       var userstorate = {};
       userChecks = ''; 
       $.each(data.val.users, function(k,v) {
-        userChecks = userChecks + '<label for="user-'+k+'">'+ k + '</label> <input type="checkbox" value="'+k+'"  id="user-'+k+'"/> <br>';
+        userChecks = userChecks + '<label for="user-'+k+'">'+ k + '</label> <input type="checkbox" checked value="'+k+'"  id="user-'+k+'"/> <br>';
       });
       $message.html(userChecks);
       $action.text('setup').click(function(){
@@ -32,48 +32,53 @@ var setup = {
 	getQuestions : function(data,$title,$message,$action, callback) {
 		setup.resetScreen($title,$message,$action);
 		$title.text("Collecting questions for " + data.weekstamp + ".");
+		$action.text("loading . . .");
 		data.review.pending = {};
 		data.review.complete = {};
 		function runTemplate(person, destinations, template) {
 			var tmpl = data.val.aspects[template];
-			var map = {
-				review:data.weekstamp,
-				person:person,
-				key:template,
-				title:tmpl.title,
-				group:tmpl.theme,
-				path:[template]
-			}			
-			$.each(tmpl.aspects,function(k,v){
-				getAspects(v,destinations,map)
-			})
+			if(typeof(tmpl) !== "undefined"){
+				var map = {
+					review:data.weekstamp,
+					person:person,
+					key:template,
+					title:tmpl.title,
+					group:tmpl.theme,
+					innerPath: false,
+				}			
+				$.each(tmpl.aspects,function(k,v){
+					var breadcrumb = {
+						root: [template, v],
+						innerRoom:false,
+						finalRoom:false
+					}
+					getAspects(v,destinations, [person,template, v])
+				})
+			} else {
+				console.warn("NOTE: " + template + " for " + person + " has nothing to rate.")
+			}
 		}
 		function getAspects(key, destinations, map) {
 			var aspect = data.val.aspects[key];
 			if(typeof(aspect) !== "undefined"){
 				if(typeof(aspect.aspects) == "undefined" || !aspect.aspects) {
+					var question = {
+						path: map.join('-'),
+						text:aspect.title,
+						rating:0,
+						review:data.weekstamp,
+						map:map,
+						aspect:aspect
+					}
+
 					$.each(destinations, function(k,v){
-						var question = {
-							path: map.path.join('-'),
-							text:aspect.title,
-							rating:0,
-							review:data.weekstamp,
-							map:map
-						}
-						// console.log(question.path);
+						v[question.path] = question
 					})
 				} else {
 					$.each(aspect.aspects,function(k,v){
-						var lastPath = map.path[map.path.length -1];
-						console.log(lastPath, key, k == lastPath);
-						if(k !== lastPath) {
-							map.path.push(v);
-						} else {
-							map.path = [map.template];
-						}
-						
-						console.log(map.path);
-						getAspects(v, destinations, map);
+						var newBranch = map.slice(0);
+						newBranch.push(v);
+						getAspects(v, destinations, newBranch);
 					})	
 				} 
 			} else {
@@ -89,5 +94,20 @@ var setup = {
 
 		callback();
 		// console.log(data);
+	},
+	reviewStatus : function(data,$title,$message,$action, callback) {
+		setup.resetScreen($title,$message,$action);
+		var pendingQuestions = Object.size(data.pending);
+		var users = Object.size(data.users);
+
+		$title.text("Here's the stats for this week's review.");
+		$message.text("There are " + pendingQuestions + " pending questions covering " + users + " people left to review.");
+		$action.text("Get to it.").click(function(){ window.location = "/rate.html"})
+	},
+	reviewInit : function(data,$title,$message,$action, callback) {
+		setup.resetScreen($title,$message,$action);
+		var question = data.val[0];
+		$title.text("For : ")
+		callback();
 	}
 }

@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Evaluate Application - setup</title>
+    <title>Evaluate Application - rate</title>
     <style>
       body {
         font-family:sans-serif;
@@ -74,61 +74,38 @@
               }, null, '  ');
             });
 
+// 
+// Init rater
+// 
 
-var today = new Date().getFiscal();
-var db = firebase.database();
-var $title = $("#currentReview").find('h1');
-var $message = $("#currentReview").find('p');
-var $action = $("#currentReview").find('button');
+            var today = new Date().getFiscal();
+            var db = firebase.database();
+            var $title = $("#currentReview").find('h1');
+            var $message = $("#currentReview").find('p');
+            var $action = $("#currentReview").find('button');
+            db.ref("/reviews/" + today.year + "-w" + today.week).on('value', function(e){
+              if(e.val() !== null) {
+                var data = {
+                  val : e.val(),
+                  weekstamp : today.year + "-w" + today.week
+                }
+                setup.reviewInit(data, $title,$message,$action, function(){
+                  // done
+                  console.log(data.val);
+                });
 
- // 
- // INIT REVIEWS
- // 
-// db.ref('/aspects/').set(behaviors);
-$title.text("Please wait while I fetch the data.");
-$action.text("Loading.");
+              } else {
+                $title.text('Whoops, there is nothing to review at the moment.');
+                $message.text('Please setup a review for this week.');
+                $action.text("start now").click(function(){
+                  window.location = '/';
+                })
+              }
+            });
 
-
-db.ref().on('value', function(d){
-  var data = {
-    val : d.val(),
-    weekstamp : today.year + "-w" + today.week
-  }
-  var rdata = data.val.reviews;
-
-  // is there already a review running?
-  if(rdata[data.weekstamp]) {
-    // if so, let's keep going
-    setup.reviewStatus(rdata[data.weekstamp],$title,$message,$action, function(){
-      // done
-    
-    });
-  } else {
-    // setup a new review if not
-    data.review = {};
-    
-    // who do you want to review?
-    setup.getUsers(data,$title,$message,$action, function(){
-      console.log(data);
-      setup.getQuestions(data,$title,$message,$action, function(){
-        console.log("questions done", data.review);
-        db.ref('/reviews/' + data.weekstamp).set(data.review)
-      });
-    });
-
-    // collect questions for them
-
-    // begin the review
-
-  }
-
-
-});
-
- // 
- // END REVIEWS
- // 
-            
+// 
+// end rater
+// 
 
           } else {
             // User is signed out.

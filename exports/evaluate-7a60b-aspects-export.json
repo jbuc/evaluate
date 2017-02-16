@@ -1,5 +1,4 @@
-// aspects.set(behaviors);
-var behaviors = {
+{
   "collaborates" : {
     "aspects" : [ "collnetwork", "collshare", "collrecognize", "collrespect" ],
     "category" : "how",
@@ -141,8 +140,8 @@ var behaviors = {
     "title" : "Keeps the Consumer/Customer Close"
   },
   "consval" : {
-    "category" : "how",
     "aspects" : false,
+    "category" : "how",
     "parent" : "consumer",
     "theme" : "core",
     "title" : "Finds and implements ways to create & add value for our consumer / customer"
@@ -160,124 +159,124 @@ var behaviors = {
     "theme" : "core",
     "title" : "Core Behaviors"
   },
-"devLead" : {
-  "aspects" : ["dlsolutions", "dlsupport", "dltalent", "dlteam"],
-  "category" : "role",
-  "parent" : false,
-  "theme" : "dev",
-  "title" : "Developer I"
-},
-"dlsolutions" : {
-  "aspects" : ["core", "leader", "values"],
-  "category" : "what",
-  "parent" : "devLead",
-  "theme" : "accountability",
-  "title" : "Uses HTML, CSS, and Javascript with supporting frameworks, libraries and tools to develop platform focused user centered online experiences."
-},
-"dlsupport" : {
-  "aspects" : ["core", "leader", "values"],
-  "category" : "what",
-  "parent" : "devLead",
-  "theme" : "accountability",
-  "title" : "Reviews, diagnoses, repairs, and maintain expected quality of online experiences through critical thinking, analysis, and research."
-},
-"dltalent" : {
-  "aspects" : ["core", "leader", "values"],
-  "category" : "what",
-  "parent" : "devLead",
-  "theme" : "accountability",
-  "title" : "Explores, trains, and develops in understanding of front-end and back-end industry knowledge for self and team members."
-},
-"dlteam" : {
-  "aspects" : ["core", "leader", "values"],
-  "category" : "what",
-  "parent" : "devLead",
-  "theme" : "accountability",
-  "title" : "Ensure assignment, quality, and volume of work accomplished by direct reports."
-},
   "devI" : {
-    "aspects" : ["devIsolutions", "devIsystems", "devItalent"],
+    "aspects" : [ "devIsolutions", "devIsystems", "devItalent" ],
     "category" : "role",
     "parent" : false,
     "theme" : "dev",
     "title" : "Developer I"
   },
   "devII" : {
-    "aspects" : ["devIIsolutions", "devIIsystems", "devIItalent"],
+    "aspects" : [ "devIIsolutions", "devIIsystems", "devIItalent" ],
     "category" : "role",
     "parent" : false,
     "theme" : "dev",
     "title" : "Developer II"
   },
   "devIII" : {
-    "aspects" : [ "devIIIsolutions", "devIIIsystems", "devIIItalent"],
+    "aspects" : [ "devIIIsolutions", "devIIIsystems", "devIIItalent" ],
     "category" : "role",
     "parent" : false,
     "theme" : "dev",
     "title" : "Developer III"
   },
   "devIIIsolutions" : {
-    "aspects" : ["core", "values"],
+    "aspects" : [ "core", "values" ],
     "category" : "what",
     "parent" : "devIII",
     "theme" : "accountability",
     "title" : "Develop requested development assets, enhancements, and features."
   },
   "devIIIsystems" : {
-    "aspects" : ["core", "values"],
+    "aspects" : [ "core", "values" ],
     "category" : "what",
     "parent" : "devIII",
     "theme" : "accountability",
     "title" : "Reviews, diagnoses, repairs, and maintains online experiences and ecommerce sites."
   },
   "devIIItalent" : {
-    "aspects" : ["core", "values"],
+    "aspects" : [ "core", "values" ],
     "category" : "what",
     "parent" : "devIII",
     "theme" : "accountability",
     "title" : "Explores, trains, and develops in understanding of HTML/CSS/Javascript knowledge for self and co workers"
   },
   "devIIsolutions" : {
-    "aspects" : ["core", "values"],
+    "aspects" : [ "core", "values" ],
     "category" : "what",
     "parent" : "devII",
     "theme" : "accountability",
     "title" : "Develop requested development assets, enhancements, and features."
   },
   "devIIsystems" : {
-    "aspects" : ["core", "values"],
+    "aspects" : [ "core", "values" ],
     "category" : "what",
     "parent" : "devII",
     "theme" : "accountability",
     "title" : "Reviews, diagnoses, repairs, and maintains online experiences and ecommerce sites."
   },
   "devIItalent" : {
-    "aspects" : ["core", "values"],
+    "aspects" : [ "core", "values" ],
     "category" : "what",
     "parent" : "devII",
     "theme" : "accountability",
     "title" : "Explores, trains, and develops in understanding of HTML/CSS/Javascript knowledge for self and co workers"
   },
   "devIsolutions" : {
-    "aspects" : ["core", "values"],
+    "aspects" : [ "core", "values" ],
     "category" : "what",
     "parent" : "devI",
     "theme" : "accountability",
     "title" : "Develop requested development assets, enhancements, and features."
   },
   "devIsystems" : {
-    "aspects" : ["core", "values"],
+    "aspects" : [ "core", "values" ],
     "category" : "what",
     "parent" : "devI",
     "theme" : "accountability",
     "title" : "Reviews, diagnoses, repairs, and maintains online experiences and ecommerce sites."
   },
   "devItalent" : {
-    "aspects" : ["core", "values"],
+    "aspects" : [ "core", "values" ],
     "category" : "what",
     "parent" : "devI",
     "theme" : "accountability",
     "title" : "Explores, trains, and develops in understanding of HTML/CSS/Javascript knowledge for self and co workers"
+  },
+  "devLead" : {
+    "aspects" : [ "dlsolutions", "dlsupport", "dltalent", "dlteam" ],
+    "category" : "role",
+    "parent" : false,
+    "theme" : "dev",
+    "title" : "Developer I"
+  },
+  "dlsolutions" : {
+    "aspects" : [ "core", "leader", "values" ],
+    "category" : "what",
+    "parent" : "devLead",
+    "theme" : "accountability",
+    "title" : "Uses HTML, CSS, and Javascript with supporting frameworks, libraries and tools to develop platform focused user centered online experiences."
+  },
+  "dlsupport" : {
+    "aspects" : [ "core", "leader", "values" ],
+    "category" : "what",
+    "parent" : "devLead",
+    "theme" : "accountability",
+    "title" : "Reviews, diagnoses, repairs, and maintain expected quality of online experiences through critical thinking, analysis, and research."
+  },
+  "dltalent" : {
+    "aspects" : [ "core", "leader", "values" ],
+    "category" : "what",
+    "parent" : "devLead",
+    "theme" : "accountability",
+    "title" : "Explores, trains, and develops in understanding of front-end and back-end industry knowledge for self and team members."
+  },
+  "dlteam" : {
+    "aspects" : [ "core", "leader", "values" ],
+    "category" : "what",
+    "parent" : "devLead",
+    "theme" : "accountability",
+    "title" : "Ensure assignment, quality, and volume of work accomplished by direct reports."
   },
   "empclarify" : {
     "aspects" : false,
@@ -414,6 +413,41 @@ var behaviors = {
     "theme" : "leader",
     "title" : "Leadership Behaviors"
   },
+  "mgrcoach" : {
+    "aspects" : [ "core", "leader", "values" ],
+    "category" : "what",
+    "parent" : false,
+    "theme" : "accountability",
+    "title" : "Manages and develops IS resources through coaching and counseling, as well as provides system and business expertise to develop internal IS talent."
+  },
+  "mgrcompletion" : {
+    "aspects" : [ "core", "leader", "values" ],
+    "category" : "what",
+    "parent" : false,
+    "theme" : "accountability",
+    "title" : "Assures effective completion of projects with resource management, planning, and communication."
+  },
+  "mgrplans" : {
+    "aspects" : [ "core", "leader", "values" ],
+    "category" : "what",
+    "parent" : false,
+    "theme" : "accountability",
+    "title" : "Assures definition and plans for business processes, requirements, projects, and plans."
+  },
+  "mgrsolutions" : {
+    "aspects" : [ "core", "leader", "values" ],
+    "category" : "what",
+    "parent" : false,
+    "theme" : "accountability",
+    "title" : "Assures technical solutions are created."
+  },
+  "mgrsupport" : {
+    "aspects" : [ "core", "leader", "values" ],
+    "category" : "what",
+    "parent" : false,
+    "theme" : "accountability",
+    "title" : "Assures the integrity and continual operation of information systems and delivers effective support and customer service to resolve issues swiftly and accurately to meet customer needs."
+  },
   "ownadmit" : {
     "category" : "how",
     "parent" : "ownership",
@@ -440,35 +474,35 @@ var behaviors = {
     "title" : "Meets set goals"
   },
   "ownstep" : {
-    "aspects": false,
+    "aspects" : false,
     "category" : "how",
     "parent" : "ownership",
     "theme" : "core",
     "title" : "Takes initiative, stepping forward regardless of position"
   },
   "pasact" : {
-    "aspects": false,
+    "aspects" : false,
     "category" : "how",
     "parent" : "passion",
     "theme" : "core",
     "title" : "Acts decisively with urgency & thought"
   },
   "pascalc" : {
-    "aspects": false,
+    "aspects" : false,
     "category" : "how",
     "parent" : "passion",
     "theme" : "core",
     "title" : "Takes Calculated Risks to accomplish a remarkable result"
   },
   "pascommit" : {
-    "aspects": false,
+    "aspects" : false,
     "category" : "how",
     "parent" : "passion",
     "theme" : "core",
     "title" : "Shows passionate commitment to meeting goals, tackling challenges with optimism"
   },
   "passet" : {
-    "aspects": false,
+    "aspects" : false,
     "category" : "how",
     "parent" : "passion",
     "theme" : "core",
@@ -489,235 +523,214 @@ var behaviors = {
     "title" : "Play your Part"
   },
   "playexecute" : {
-    "aspects": false,
+    "aspects" : false,
     "category" : "how",
     "parent" : "play",
     "theme" : "core",
     "title" : "Executes plans effectively & efficiently, adapting as needed"
   },
   "playmeasure" : {
-    "aspects": false,
+    "aspects" : false,
     "category" : "how",
     "parent" : "play",
     "theme" : "core",
     "title" : "Tracks and measures performance"
   },
   "playplan" : {
-    "aspects": false,
+    "aspects" : false,
     "category" : "how",
     "parent" : "play",
     "theme" : "core",
     "title" : "Develops action plans to deliver accountabilities"
   },
   "playpriority" : {
-    "aspects": false,
+    "aspects" : false,
     "category" : "how",
     "parent" : "play",
     "theme" : "core",
     "title" : "Keeps focus on what matters while managing multiple demands"
   },
   "pmII" : {
-    "aspects" : ["pmIIcommunicate", "pmIIprioritize", "pmIIclarify", "pmIIplan", "pmIImitigate"],
+    "aspects" : [ "pmIIcommunicate", "pmIIprioritize", "pmIIclarify", "pmIIplan", "pmIImitigate" ],
     "category" : "role",
     "parent" : false,
     "theme" : "pm",
     "title" : "Web PM II"
   },
-  "pmIIcommunicate" : {
-    "aspects" : ["core", "values"],
-    "category" : "what",
-    "parent" : "pmII",
-    "theme" : "accountability",
-    "title" : "Act as the main point of contact for all Web Development projects in process and team members. "
-  },
-  "pmIIprioritize" : {
-    "aspects" : ["core", "values"],
-    "category" : "what",
-    "parent" : "pmII",
-    "theme" : "accountability",
-    "title" : "Work closely with Web Developer Project Manager 3  to understand project priority and keep the project backlog populated with items that are relevant."
-  },
-  "pmIIclarify" : {
-    "aspects" : ["core", "values"],
-    "category" : "what",
-    "parent" : "pmII",
-    "theme" : "accountability",
-    "title" : "Ensure understanding of the project and business objectives to enable detailed grooming and estimation to a degree appropriate with their business priority"
-  },
-  "pmIIplan" : {
-    "aspects" : ["core", "values"],
-    "category" : "what",
-    "parent" : "pmII",
-    "theme" : "accountability",
-    "title" : "Partner with Web Development Project Manager 3 ensure assignment and execution of all projects"
-  },
-  "pmIImitigate" : {
-    "aspects" : ["core", "values"],
-    "category" : "what",
-    "parent" : "pmII",
-    "theme" : "accountability",
-    "title" : "Facilitate decision-making, issue resolution and consensus among the team members and dependent teams "
-  },
-"pmIII" : {
-    "aspects" : ["pmIIIprioritize", "pmIIIreport", "pmIIIplan", "pmIIIclarify", "pmIIIteam"],
+  "pmIII" : {
+    "aspects" : [ "pmIIIprioritize", "pmIIIreport", "pmIIIplan", "pmIIIclarify", "pmIIIteam" ],
     "category" : "role",
     "parent" : false,
     "theme" : "pm",
     "title" : "Web PM III "
   },
+  "pmIIIclarify" : {
+    "aspects" : [ "core", "leader", "values" ],
+    "category" : "what",
+    "parent" : "pmIII",
+    "theme" : "accountability",
+    "title" : "Work with business stakeholders to identify, estimate and define stories for strategic yearly business objectives in alignment with Information Services Business Driven IT Strategy"
+  },
+  "pmIIIplan" : {
+    "aspects" : [ "core", "leader", "values" ],
+    "category" : "what",
+    "parent" : "pmIII",
+    "theme" : "accountability",
+    "title" : "Ensure full utilization of web dev resources through planning and process improvements in alignment with Information Services Best Methods Strategy"
+  },
   "pmIIIprioritize" : {
-    "aspects" : ["core", "leader", "values"],
+    "aspects" : [ "core", "leader", "values" ],
     "category" : "what",
     "parent" : "pmIII",
     "theme" : "accountability",
     "title" : "Act as the Product Owner for all Level 2 and 3 Front End Project requests by owning the prioritization process and facilitating issue resolution with key business stakeholders "
   },
   "pmIIIreport" : {
-    "aspects" : ["core", "leader", "values"],
+    "aspects" : [ "core", "leader", "values" ],
     "category" : "what",
     "parent" : "pmIII",
     "theme" : "accountability",
     "title" : "Provide weekly, monthly and yearly output reports of the Web Dev Team in alignment with Information Services Business Solutions Strategy"
   },
-  "pmIIIplan" : {
-    "aspects" : ["core", "leader", "values"],
-    "category" : "what",
-    "parent" : "pmIII",
-    "theme" : "accountability",
-    "title" : "Ensure full utilization of web dev resources through planning and process improvements in alignment with Information Services Best Methods Strategy"
-  },
-  "pmIIIclarify" : {
-    "aspects" : ["core", "leader", "values"],
-    "category" : "what",
-    "parent" : "pmIII",
-    "theme" : "accountability",
-    "title" : "Work with business stakeholders to identify, estimate and define stories for strategic yearly business objectives in alignment with Information Services Business Driven IT Strategy"
-  },
   "pmIIIteam" : {
-    "aspects" : ["core", "leader", "values"],
+    "aspects" : [ "core", "leader", "values" ],
     "category" : "what",
     "parent" : "pmIII",
     "theme" : "accountability",
     "title" : "Manage or supervise a direct report (if applicable) in alignment with Information Services Best People Strategy"
   },
-"uxI" : {
-    "aspects" : ["uxIdesigns", "uxIvalue", "uxIpartners"],
+  "pmIIclarify" : {
+    "aspects" : [ "core", "values" ],
+    "category" : "what",
+    "parent" : "pmII",
+    "theme" : "accountability",
+    "title" : "Ensure understanding of the project and business objectives to enable detailed grooming and estimation to a degree appropriate with their business priority"
+  },
+  "pmIIcommunicate" : {
+    "aspects" : [ "core", "values" ],
+    "category" : "what",
+    "parent" : "pmII",
+    "theme" : "accountability",
+    "title" : "Act as the main point of contact for all Web Development projects in process and team members. "
+  },
+  "pmIImitigate" : {
+    "aspects" : [ "core", "values" ],
+    "category" : "what",
+    "parent" : "pmII",
+    "theme" : "accountability",
+    "title" : "Facilitate decision-making, issue resolution and consensus among the team members and dependent teams "
+  },
+  "pmIIplan" : {
+    "aspects" : [ "core", "values" ],
+    "category" : "what",
+    "parent" : "pmII",
+    "theme" : "accountability",
+    "title" : "Partner with Web Development Project Manager 3 ensure assignment and execution of all projects"
+  },
+  "pmIIprioritize" : {
+    "aspects" : [ "core", "values" ],
+    "category" : "what",
+    "parent" : "pmII",
+    "theme" : "accountability",
+    "title" : "Work closely with Web Developer Project Manager 3  to understand project priority and keep the project backlog populated with items that are relevant."
+  },
+  "uxI" : {
+    "aspects" : [ "uxIdesigns", "uxIvalue", "uxIpartners" ],
     "category" : "role",
     "parent" : false,
     "theme" : "design",
     "title" : "User Experience Designer I"
   },
-"uxIdesigns" : {
-    "aspects" : ["core", "values"],
-    "category" : "what",
-    "parent" : "uxI",
-    "theme" : "accountability",
-    "title" : "Creates consistent, simple, and focused designs"
-  },
-"uxIvalue" : {
-    "aspects" : ["core", "values"],
-    "category" : "what",
-    "parent" : "uxI",
-    "theme" : "accountability",
-    "title" : "Creates designs with the goal in mind"
-  },
-"uxIpartners" : {
-    "aspects" : ["core", "values"],
-    "category" : "what",
-    "parent" : "uxI",
-    "theme" : "accountability",
-    "title" : "Cultivates collaboration with partners"
-  },
   "uxII" : {
-    "aspects" : ["uxIIdesigns", "uxIIvalue", "uxIIpartners"],
+    "aspects" : [ "uxIIdesigns", "uxIIvalue", "uxIIpartners" ],
     "category" : "role",
     "parent" : false,
     "theme" : "design",
     "title" : "User Experience Designer II"
   },
-  "uxIIdesigns" : {
-      "aspects" : ["core", "values"],
-      "category" : "what",
-      "parent" : "uxII",
-      "theme" : "accountability",
-      "title" : "Creates consistent, simple, and focused designs, running UX Design process."
-    },
-  "uxIIvalue" : {
-      "aspects" : ["core", "values"],
-      "category" : "what",
-      "parent" : "uxII",
-      "theme" : "accountability",
-      "title" : "Creates designs with the goal in mind"
-    },
-  "uxIIpartners" : {
-      "aspects" : ["core", "values"],
-      "category" : "what",
-      "parent" : "uxII",
-      "theme" : "accountability",
-      "title" : "Cultivates collaboration with partners"
-    },
   "uxIII" : {
-    "aspects" : ["uxIIIdesigns", "uxIIIvalue", "uxIIIpartners"],
+    "aspects" : [ "uxIIIdesigns", "uxIIIvalue", "uxIIIpartners" ],
     "category" : "role",
     "parent" : false,
     "theme" : "design",
     "title" : "User Experience Designer III"
   },
   "uxIIIdesigns" : {
-      "aspects" : ["core", "values"],
-      "category" : "what",
-      "parent" : "uxIII",
-      "theme" : "accountability",
-      "title" : "Creates consistent, simple, and focused designs, running UX Design process."
-    },
-  "uxIIIvalue" : {
-      "aspects" : ["core", "values"],
-      "category" : "what",
-      "parent" : "uxIII",
-      "theme" : "accountability",
-      "title" : "Creates designs with the goal in mind"
-    },
+    "aspects" : [ "core", "values" ],
+    "category" : "what",
+    "parent" : "uxIII",
+    "theme" : "accountability",
+    "title" : "Creates consistent, simple, and focused designs, running UX Design process."
+  },
   "uxIIIpartners" : {
-      "aspects" : ["core", "values"],
-      "category" : "what",
-      "parent" : "uxIII",
-      "theme" : "accountability",
-      "title" : "Cultivates collaboration with partners"
-    },
-  "values" : {
-    "aspects" : [ "valpassion", "valaccountability", "valcuriosity", "valcreativity", "valcaring" ],
+    "aspects" : [ "core", "values" ],
     "category" : "what",
+    "parent" : "uxIII",
+    "theme" : "accountability",
+    "title" : "Cultivates collaboration with partners"
+  },
+  "uxIIIvalue" : {
+    "aspects" : [ "core", "values" ],
+    "category" : "what",
+    "parent" : "uxIII",
+    "theme" : "accountability",
+    "title" : "Creates designs with the goal in mind"
+  },
+  "uxIIdesigns" : {
+    "aspects" : [ "core", "values" ],
+    "category" : "what",
+    "parent" : "uxII",
+    "theme" : "accountability",
+    "title" : "Creates consistent, simple, and focused designs, running UX Design process."
+  },
+  "uxIIpartners" : {
+    "aspects" : [ "core", "values" ],
+    "category" : "what",
+    "parent" : "uxII",
+    "theme" : "accountability",
+    "title" : "Cultivates collaboration with partners"
+  },
+  "uxIIvalue" : {
+    "aspects" : [ "core", "values" ],
+    "category" : "what",
+    "parent" : "uxII",
+    "theme" : "accountability",
+    "title" : "Creates designs with the goal in mind"
+  },
+  "uxIdesigns" : {
+    "aspects" : [ "core", "values" ],
+    "category" : "what",
+    "parent" : "uxI",
+    "theme" : "accountability",
+    "title" : "Creates consistent, simple, and focused designs"
+  },
+  "uxIpartners" : {
+    "aspects" : [ "core", "values" ],
+    "category" : "what",
+    "parent" : "uxI",
+    "theme" : "accountability",
+    "title" : "Cultivates collaboration with partners"
+  },
+  "uxIvalue" : {
+    "aspects" : [ "core", "values" ],
+    "category" : "what",
+    "parent" : "uxI",
+    "theme" : "accountability",
+    "title" : "Creates designs with the goal in mind"
+  },
+  "uxMgr" : {
+    "aspects" : [ "mgrsolutions", "mgrplans", "mgrcompletion", "mgrsupport", "mgrcoach" ],
+    "category" : "role",
     "parent" : false,
-    "theme" : "corporate",
-    "title" : "Corporate values"
+    "theme" : "design",
+    "title" : "User Experience Manager"
   },
-  "valpassion" : {
-    "aspects" : false,
-    "category" : "what",
-    "parent" : "values",
-    "theme" : "corporate",
-    "title" : "Passion"
-  },
-    "valaccountability" : {
+  "valaccountability" : {
     "aspects" : false,
     "category" : "what",
     "parent" : "values",
     "theme" : "corporate",
     "title" : "Accountability"
-  },
-  "valcuriosity" : {
-    "aspects" : false,
-    "category" : "what",
-    "parent" : "values",
-    "theme" : "corporate",
-    "title" : "Curiosity"
-  },
-  "valcreativity" : {
-    "aspects" : false,
-    "category" : "what",
-    "parent" : "values",
-    "theme" : "corporate",
-    "title" : "Creativity"
   },
   "valcaring" : {
     "aspects" : false,
@@ -726,46 +739,32 @@ var behaviors = {
     "theme" : "corporate",
     "title" : "Caring"
   },
-  "uxMgr" : {
-    "aspects" : ["mgrsolutions", "mgrplans", "mgrcompletion", "mgrsupport", "mgrcoach"],
-    "category" : "role",
-    "parent" : false,
-    "theme" : "design",
-    "title" : "User Experience Manager"
+  "valcreativity" : {
+    "aspects" : false,
+    "category" : "what",
+    "parent" : "values",
+    "theme" : "corporate",
+    "title" : "Creativity"
   },
-  "mgrsolutions" : {
-    "aspects" : ["core", "leader", "values"],
+  "valcuriosity" : {
+    "aspects" : false,
+    "category" : "what",
+    "parent" : "values",
+    "theme" : "corporate",
+    "title" : "Curiosity"
+  },
+  "valpassion" : {
+    "aspects" : false,
+    "category" : "what",
+    "parent" : "values",
+    "theme" : "corporate",
+    "title" : "Passion"
+  },
+  "values" : {
+    "aspects" : [ "valpassion", "valaccountability", "valcuriosity", "valcreativity", "valcaring" ],
     "category" : "what",
     "parent" : false,
-    "theme" : "accountability",
-    "title" : "Assures technical solutions are created."
-  },
-  "mgrplans" : {
-    "aspects" : ["core", "leader", "values"],
-    "category" : "what",
-    "parent" : false,
-    "theme" : "accountability",
-    "title" : "Assures definition and plans for business processes, requirements, projects, and plans."
-  },
-  "mgrcompletion" : {
-    "aspects" : ["core", "leader", "values"],
-    "category" : "what",
-    "parent" : false,
-    "theme" : "accountability",
-    "title" : "Assures effective completion of projects with resource management, planning, and communication."
-  },
-  "mgrsupport" : {
-    "aspects" : ["core", "leader", "values"],
-    "category" : "what",
-    "parent" : false,
-    "theme" : "accountability",
-    "title" : "Assures the integrity and continual operation of information systems and delivers effective support and customer service to resolve issues swiftly and accurately to meet customer needs."
-  },
-  "mgrcoach" : {
-    "aspects" : ["core", "leader", "values"],
-    "category" : "what",
-    "parent" : false,
-    "theme" : "accountability",
-    "title" : "Manages and develops IS resources through coaching and counseling, as well as provides system and business expertise to develop internal IS talent."
-  },
-};
+    "theme" : "corporate",
+    "title" : "Corporate values"
+  }
+}

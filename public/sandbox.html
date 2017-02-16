@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var obj = {
+		   "key":{
+		      "keys":["key1","key2"],
+		      "title":"This is the first room."
+		   },
+		   "key1":{
+		      "keys":false,
+		      "title":"this is the last room"
+		   },
+		   "key2": {
+		      "keys":["key3"],
+		      "title":"this is a middle room."
+		   }
+		};
+
+		function travel(obj, key, map) {
+
+		   
+		   if(!obj[key].keys) {
+		   	  map.push(key);
+		   	  document.body.append("end of the line - here's my path: " + map);
+		   } else {
+		   	 
+		   	 console.log(key);
+		   	 keyring = (key) ? obj[key].keys : []; 
+		   	 
+		   	 for (var i = keyring.length - 1; i >= 0; i--) {
+		   	 	
+		   	 	map.push(keyring[i]);
+		   	 	var newBranch = map.slice(0);
+
+		   	 	travel(obj, keyring[i], newBranch)
+		   	 }
+
+		   }
+		}
+
+		travel(obj,"key",[]);
+
+	</script>
+</body>
+</html>
